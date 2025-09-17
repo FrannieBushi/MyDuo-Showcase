@@ -54,13 +54,20 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 to-red-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-md w-full space-y-8 p-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-            YourDuo
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+    
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-pink-200 to-white-100 dark:from-gray-900 dark:to-gray-800 p-6 sm:p-8 pt-8">
+      <div className="text-center mb-15"> 
+        <p className="text-4xl md:text-5xl lg:text-6xl text-gray-800 dark:text-gray-300">
+          Welcome to
+        </p>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-pink-600 dark:text-pink-600">
+          MyDuo
+        </h1>
+      </div>
+
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-3xl shadow-2xl px-8 py-10">
+        <div className="text-center mb-10">
+          <p className="text-2xl text-gray-700 dark:text-gray-300">
             {isSignUp ? "Create Your Account" : "Sign in to your account"}
           </p>
         </div>
@@ -69,7 +76,7 @@ export default function AuthPage() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
               Email
             </label>
@@ -79,15 +86,15 @@ export default function AuthPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 dark:bg-gray-800 dark:text-white"
+              className="mt-1 block w-full px-4 py-3 text-lg border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 dark:bg-gray-700 dark:text-white"
               placeholder="Enter your email"
             />
           </div>
 
-          <div>
+          <div className="mb-10">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
               Password
             </label>
@@ -97,13 +104,13 @@ export default function AuthPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-pink-500 focus:border-pink-500 dark:bg-gray-800 dark:text-white"
+              className="mt-1 block w-full px-4 py-3 text-lg border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 dark:bg-gray-700 dark:text-white"
               placeholder="Enter your password"
             />
           </div>
 
           {error && (
-            <div className="text-red-600 dark:text-red-400 text-sm">
+            <div className="text-red-600 dark:text-red-400 text-base p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
               {error}
             </div>
           )}
@@ -111,16 +118,16 @@ export default function AuthPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 disabled:opacity-50"
+            className="w-full flex justify-center py-3 px-6 border border-transparent rounded-xl shadow-sm text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 disabled:opacity-50 transition-colors duration-200"
           >
             {loading ? "Loading..." : isSignUp ? "Sign Up" : "Sign In"}
           </button>
         </form>
 
-        <div className="text-center">
+        <div className="text-center mt-6">
           <button
             onClick={() => setIsSignUp(!isSignUp)}
-            className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 text-sm"
+            className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 text-lg font-medium"
           >
             {isSignUp
               ? "Already have an account? Sign in"
